@@ -2,13 +2,12 @@ $def with (page)
 
 <html>
 <head>
-	$if page.has_key('title'):
-		<title>$page.title</title>
-	$else:
+	$if 'title' in page:
+	 	<title>$page.title</title>  
+	$else:  
 		<title>My Wiki</title>
-	<style>
-	</style>
 
+</head>
 	<body>
 		<ul>
 			<li><a href='/'>Home</a></li>
@@ -18,5 +17,4 @@ $def with (page)
 		$:page
 
 	</body>
-</head>
 </html>

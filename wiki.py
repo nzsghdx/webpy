@@ -20,14 +20,16 @@ render=web.template.render('templates',base='base',globals=t_globals)
 
 class Index:
     def GET(self):
+        """Show page"""
         pages=model.get_pages()
         return render.index(pages)
 
 class Page:
     def GET(self,url):
+        """ View single page """
         page=model.get_page_by_url(url)
         if not page:
-            raise web.seeother('/new?url=%s' % web.websafe(url))
+            raise web.seeother('/new?url=%s'%web.websafe(url))
         return render.view(page)
 
 class New:
